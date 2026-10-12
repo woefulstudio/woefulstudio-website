@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Read Victor & Violet, the spooky-cute webcomic by Woeful Studio."
+  >
+
+  <title>Read Victor &amp; Violet | Woeful Studio</title>
+
+  <!-- Load the main website's stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+
+    /* =====================================
+       COMIC LIBRARY PAGE STYLES
+       ===================================== */
+
+    body {
+      margin: 0;
+      background: #241d31;
+      color: #fff4de;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .comic-library-header {
+      padding: 70px 20px 50px;
+      text-align: center;
+      background: linear-gradient(
+        180deg,
+        #38284f,
+        #67448f,
+        #9e75bc
+      );
+      border-bottom: 4px solid #21182b;
+    }
+
+    .comic-library-header .eyebrow {
+      color: #fff0d5;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .comic-library-header h1 {
+      color: #ffe3a2;
+      font-size: clamp(40px, 7vw, 70px);
+      line-height: 1.1;
+      margin: 20px 0;
+      text-shadow: 3px 3px 0 #352541;
+    }
+
+    .comic-library-header p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    .comic-library-header .back-home {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: #ffe3a2;
+      color: #21182b;
+      border: 3px solid #21182b;
+      border-radius: 30px;
+      box-shadow: 4px 4px 0 #21182b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .comic-library-header .back-home:hover {
+      background: #fff0c9;
+    }
+
+    .comics-section {
+      padding: 65px 20px 90px;
+      background: #241d31;
+    }
+
+    .comic-reader {
+      max-width: 850px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 5px solid #17111e;
+      border-radius: 20px;
+      box-shadow: 10px 10px 0 #17111e;
+      background: #f8f0e6;
+    }
+
+    .reader-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 18px 25px;
+      background: #25192f;
+      color: #ffe3a2;
+    }
+
+    .reader-label {
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .reader-decoration {
+      color: #dfc6ed;
+    }
+
+    .reader-content {
+      padding: 30px;
+      background-color: #f8f0e6;
+      background-image:
+        radial-gradient(#cbbdd1 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .episode-reader {
+      color: #30233c;
+      text-align: center;
+    }
+
+    .episode-count {
+      color: #74548b;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin: 10px 0 15px;
+    }
+
+    .episode-reader h2 {
+      color: #352542;
+      font-size: clamp(26px, 4vw, 38px);
+      margin: 15px 0 30px;
+    }
+
+    .episode-image-container {
+      max-width: 720px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: white;
+      border: 4px solid #17111e;
+      border-radius: 12px;
+      box-shadow: 6px 6px 0 #17111e;
+    }
+
+    .episode-image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .episode-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .episode-navigation button {
+      padding: 12px 24px;
+      border: 3px solid #17111e;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .episode-navigation .outline-button {
+      background: #65458b;
+      color: white;
+    }
+
+    .episode-navigation .gold-button {
+      background: #ffe3a2;
+      color: #21182b;
+    }
+
+    .episode-navigation button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    #episode-number {
+      font-size: 15px;
+      font-weight: bold;
+      color: #5c466c;
+    }
+
+    .image-error {
+      margin: 20px auto;
+      padding: 15px;
+      max-width: 600px;
+      color: #8b2738;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .reader-bottom {
+      padding: 35px 25px;
+      text-align: center;
+      background: #25192f;
+      color: #f6e9f4;
+    }
+
+    .reader-bottom p {
+      margin-bottom: 15px;
+    }
+
+    .reader-bottom a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: #ffe3a2;
+      color: #21182b;
+      border: 3px solid #17111e;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .comic-library-footer {
+      padding: 35px 20px;
+      background: #211927;
+      text-align: center;
+      color: #f7eaf7;
+    }
+
+    .comic-library-footer a {
+      color: #ffe3a2;
+    }
+
+    @media (max-width: 650px) {
+
+      .reader-content {
+        padding: 15px;
+      }
+
+      .episode-image-container {
+        border-width: 2px;
+        box-shadow: 3px 3px 0 #17111e;
+      }
+
+      .episode-navigation {
+        justify-content: center;
+      }
+
+      #episode-number {
+        order: -1;
+        width: 100%;
+        text-align: center;
+      }
+
+      .episode-navigation button {
+        font-size: 13px;
+        padding: 12px 18px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =====================================
+       WEBSITE NAVIGATION
+       ===================================== -->
+
+  <header class="site-header">
+
+    <a href="../index.html" class="brand">
+      ✦ Woeful Studio ✦
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Read Comics</a>
+      <a href="../index.html#characters">Characters</a>
+      <a href="../index.html#neitherwood">Neitherwood</a>
+      <a href="../index.html#about">About</a>
+      <a href="../shop.html">Shop</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- =====================================
+         COMIC LIBRARY INTRODUCTION
+         ===================================== -->
+
+    <section class="comic-library-header">
+
+      <p class="eyebrow">
+        ✦ TALES FROM NEITHERWOOD ✦
+      </p>
+
+      <h1>
+        Victor &amp; Violet
+      </h1>
+
+      <p>
+        Welcome to the Comic Library!
+      </p>
+
+      <p>
+        Eight spooky little adventures featuring
+        Victor, Violet, and their wonderfully
+        strange friends.
+      </p>
+
+      <a href="../index.html" class="back-home">
+        ← Back to Home
+      </a>
+
+    </section>
+
+    <!-- =====================================
+         ACTUAL COMIC READER
+         ===================================== -->
+
+    <section class="comics-section" id="comics">
+
+      <div class="comic-reader">
+
+        <div class="reader-top">
+
+          <span class="reader-label">
+            ☾ THE COMIC CORNER
+          </span>
+
+          <span class="reader-decoration" aria-hidden="true">
+            ✦ ✧ ✦
+          </span>
+
+        </div>
+
+        <div class="reader-content">
+
+          <div class="episode-reader">
+
+            <p class="episode-count">
+              ✦ THE COMIC COLLECTION ✦
+            </p>
+
+            <h2 id="episode-title">
+              Blood Flakes
+            </h2>
+
+            <div class="episode-image-container">
+
+              <img
+                id="comic-image"
+                src="images/episode-1.png.jpg"
+                alt="Blood Flakes - Victor and Violet webcomic"
+              >
+
+            </div>
+
+            <p
+              id="image-error"
+              class="image-error"
+              hidden
+              role="alert"
+            >
+              This comic image could not be loaded.
+              Please check the image filename.
+            </p>
+
+            <div class="episode-navigation">
+
+              <button
+                type="button"
+                id="previous-comic"
+                class="outline-button"
+                onclick="changeEpisode(-1)"
+                disabled
+              >
+                ← Previous
+              </button>
+
+              <span id="episode-number" aria-live="polite">
+                Episode 1 of 8
+              </span>
+
+              <button
+                type="button"
+                id="next-comic"
+                class="gold-button"
+                onclick="changeEpisode(1)"
+              >
+                Next →
+              </button>
+
+<!-- Comic Likes and Comments -->
+<div class="comic-social">
+
+  <button type="button" id="like-button">
+    ♡ Like <span id="like-count">0</span>
+  </button>
+
+  <h3>💬 Comments</h3>
+
+  <div id="comments-list">
+    <p>No comments yet. Be the first!</p>
+  </div>
+
+  <form id="comment-form">
+    <input
+      type="text"
+      id="comment-name"
+      placeholder="Your name"
+      maxlength="40"
+      required
+    >
+
+    <textarea
+      id="comment-text"
+      placeholder="Write a comment..."
+      maxlength="1000"
+      required
+    ></textarea>
+
+    <button type="submit">Post Comment</button>
+  </form>
+
+  <p id="comment-message"></p>
+
+</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="reader-bottom">
+
+          <p>
+            Enjoying the adventures of Neitherwood?
+          </p>
+
+          <p>
+            Find <strong>Victor &amp; Violet</strong>
+            by <strong>woefulstudio</strong>
+            on WEBTOON Canvas.
+          </p>
+
+          <a
+            href="https://www.webtoons.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit WEBTOON
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =====================================
+       FOOTER
+       ===================================== -->
+
+  <footer class="comic-library-footer">
+
+    <p>✦ Woeful Studio ✦</p>
+
+    <p>
+      © 2026 Woeful Studio.
+      All rights reserved.
+    </p>
+
+    <p>
+      <a href="../index.html">Return to Homepage</a>
+    </p>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+
+  <!-- =====================================
+       CONNECT COMIC READER JAVASCRIPT
+       ===================================== -->     
+
+  <script src="script.js"></script>
+
+  <script src="comments.js"></script>
+
+</body>
+</html>
