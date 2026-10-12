@@ -1,338 +1,183 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     name="description"
-    content="Read Victor & Violet, the spooky-cute webcomic by Woeful Studio."
+    content="Welcome to Victor & Violet, a spooky-cute gothic comedy webcomic from Woeful Studio."
   >
 
-  <title>Read Victor &amp; Violet | Woeful Studio</title>
+  <title>Victor &amp; Violet | Woeful Studio</title>
 
-  <!-- Load the main website's stylesheet -->
-  <link rel="stylesheet" href="../style.css">
-
-  <style>
-
-    /* =====================================
-       COMIC LIBRARY PAGE STYLES
-       ===================================== */
-
-    body {
-      margin: 0;
-      background: #241d31;
-      color: #fff4de;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .comic-library-header {
-      padding: 70px 20px 50px;
-      text-align: center;
-      background: linear-gradient(
-        180deg,
-        #38284f,
-        #67448f,
-        #9e75bc
-      );
-      border-bottom: 4px solid #21182b;
-    }
-
-    .comic-library-header .eyebrow {
-      color: #fff0d5;
-      letter-spacing: 3px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .comic-library-header h1 {
-      color: #ffe3a2;
-      font-size: clamp(40px, 7vw, 70px);
-      line-height: 1.1;
-      margin: 20px 0;
-      text-shadow: 3px 3px 0 #352541;
-    }
-
-    .comic-library-header p {
-      max-width: 700px;
-      margin: 0 auto 25px;
-    }
-
-    .comic-library-header .back-home {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background: #ffe3a2;
-      color: #21182b;
-      border: 3px solid #21182b;
-      border-radius: 30px;
-      box-shadow: 4px 4px 0 #21182b;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .comic-library-header .back-home:hover {
-      background: #fff0c9;
-    }
-
-    .comics-section {
-      padding: 65px 20px 90px;
-      background: #241d31;
-    }
-
-    .comic-reader {
-      max-width: 850px;
-      margin: 0 auto;
-      overflow: hidden;
-      border: 5px solid #17111e;
-      border-radius: 20px;
-      box-shadow: 10px 10px 0 #17111e;
-      background: #f8f0e6;
-    }
-
-    .reader-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-      padding: 18px 25px;
-      background: #25192f;
-      color: #ffe3a2;
-    }
-
-    .reader-label {
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .reader-decoration {
-      color: #dfc6ed;
-    }
-
-    .reader-content {
-      padding: 30px;
-      background-color: #f8f0e6;
-      background-image:
-        radial-gradient(#cbbdd1 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-
-    .episode-reader {
-      color: #30233c;
-      text-align: center;
-    }
-
-    .episode-count {
-      color: #74548b;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin: 10px 0 15px;
-    }
-
-    .episode-reader h2 {
-      color: #352542;
-      font-size: clamp(26px, 4vw, 38px);
-      margin: 15px 0 30px;
-    }
-
-    .episode-image-container {
-      max-width: 720px;
-      margin: 0 auto;
-      overflow: hidden;
-      background: white;
-      border: 4px solid #17111e;
-      border-radius: 12px;
-      box-shadow: 6px 6px 0 #17111e;
-    }
-
-    .episode-image-container img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .episode-navigation {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 40px;
-    }
-
-    .episode-navigation button {
-      padding: 12px 24px;
-      border: 3px solid #17111e;
-      border-radius: 30px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .episode-navigation .outline-button {
-      background: #65458b;
-      color: white;
-    }
-
-    .episode-navigation .gold-button {
-      background: #ffe3a2;
-      color: #21182b;
-    }
-
-    .episode-navigation button:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    #episode-number {
-      font-size: 15px;
-      font-weight: bold;
-      color: #5c466c;
-    }
-
-    .image-error {
-      margin: 20px auto;
-      padding: 15px;
-      max-width: 600px;
-      color: #8b2738;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .reader-bottom {
-      padding: 35px 25px;
-      text-align: center;
-      background: #25192f;
-      color: #f6e9f4;
-    }
-
-    .reader-bottom p {
-      margin-bottom: 15px;
-    }
-
-    .reader-bottom a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background: #ffe3a2;
-      color: #21182b;
-      border: 3px solid #17111e;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .comic-library-footer {
-      padding: 35px 20px;
-      background: #211927;
-      text-align: center;
-      color: #f7eaf7;
-    }
-
-    .comic-library-footer a {
-      color: #ffe3a2;
-    }
-
-    @media (max-width: 650px) {
-
-      .reader-content {
-        padding: 15px;
-      }
-
-      .episode-image-container {
-        border-width: 2px;
-        box-shadow: 3px 3px 0 #17111e;
-      }
-
-      .episode-navigation {
-        justify-content: center;
-      }
-
-      #episode-number {
-        order: -1;
-        width: 100%;
-        text-align: center;
-      }
-
-      .episode-navigation button {
-        font-size: 13px;
-        padding: 12px 18px;
-      }
-
-    }
-
-  </style>
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =====================================
-       WEBSITE NAVIGATION
-       ===================================== -->
+  <!-- ===================================
+       WEBSITE HEADER
+       =================================== -->
 
   <header class="site-header">
 
-    <a href="../index.html" class="brand">
+    <a href="index.html" class="brand">
       ✦ Woeful Studio ✦
     </a>
 
     <nav aria-label="Main navigation">
-      <a href="../index.html">Home</a>
-      <a href="index.html">Read Comics</a>
-      <a href="../index.html#characters">Characters</a>
-      <a href="../index.html#neitherwood">Neitherwood</a>
-      <a href="../index.html#about">About</a>
-      <a href="../shop.html">Shop</a>
+      <a href="#home">Home</a>
+      <a href="comics/index.html">Read Comics</a>
+      <a href="#characters">Characters</a>
+      <a href="#neitherwood">Neitherwood</a>
+      <a href="#about">About</a>
+      <a href="shop.html">Shop</a>
     </nav>
 
   </header>
 
+
   <main>
 
-    <!-- =====================================
-         COMIC LIBRARY INTRODUCTION
-         ===================================== -->
+    <!-- ===================================
+         WELCOME TO VICTOR & VIOLET
+         =================================== -->
 
-    <section class="comic-library-header">
+    <section class="comic-hero" id="home">
 
-      <p class="eyebrow">
-        ✦ TALES FROM NEITHERWOOD ✦
-      </p>
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-moon" aria-hidden="true"></div>
 
-      <h1>
-        Victor &amp; Violet
-      </h1>
+      <div class="hero-content">
 
-      <p>
-        Welcome to the Comic Library!
-      </p>
+        <p class="eyebrow">
+          ✦ AN ORIGINAL WEBCOMIC BY WOEFUL STUDIO ✦
+        </p>
 
-      <p>
-        Eight spooky little adventures featuring
-        Victor, Violet, and their wonderfully
-        strange friends.
-      </p>
+        <div class="hero-title-frame">
 
-      <a href="../index.html" class="back-home">
-        ← Back to Home
-      </a>
+          <span class="title-decoration" aria-hidden="true">
+            🦇
+          </span>
+
+          <h1>
+            Victor
+            <span class="title-amp">&amp;</span>
+            Violet
+          </h1>
+
+          <p class="comic-subtitle">
+            A Little Strange. A Little Spooky.
+          </p>
+
+        </div>
+
+        <p class="hero-description">
+          Meet two little vampire twins, their sarcastic
+          skeleton neighbor, and the wonderfully weird
+          town they call home.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="comics/index.html" class="gold-button">
+            ☾ Read the Comic
+          </a>
+
+          <a href="#characters" class="outline-button">
+            Meet the Characters
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- SIMPLE CSS DECORATIONS -->
+
+      <div class="hero-decoration" aria-hidden="true">
+
+        <span class="floating-bat bat-left">🦇</span>
+        <span class="floating-bat bat-right">🦇</span>
+
+        <span class="floating-star star-one">✦</span>
+        <span class="floating-star star-two">✧</span>
+        <span class="floating-star star-three">✦</span>
+
+      </div>
+
+      <div class="hero-bottom-border" aria-hidden="true">
+        ✦ ☾ ✦ ☾ ✦
+      </div>
 
     </section>
 
-    <!-- =====================================
-         ACTUAL COMIC READER
-         ===================================== -->
+
+    <!-- ===================================
+         INTRODUCTION
+         =================================== -->
+
+    <section class="welcome-section">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          ✦ WELCOME TO THE STRANGE SIDE ✦
+        </p>
+
+        <h2>
+          Life's a Little Weird in Neitherwood
+        </h2>
+
+      </div>
+
+      <p class="welcome-description">
+        Being an eight-year-old vampire isn't always easy.
+        Especially when your twin sister is completely
+        unbothered by everything, and the skeleton next door
+        knows exactly how to get on your nerves.
+      </p>
+
+      <p class="welcome-description">
+        Join Victor, Violet, and Skellie for school days,
+        silly arguments, supernatural surprises, and
+        plenty of spooky little adventures.
+      </p>
+
+      <div class="welcome-doodles" aria-hidden="true">
+        <span>🦇</span>
+        <span>☾</span>
+        <span>💀</span>
+      </div>
+
+    </section>
+
+
+    <!-- ===================================
+         COMIC LIBRARY ENTRANCE
+         =================================== -->
 
     <section class="comics-section" id="comics">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          ✦ TALES FROM NEITHERWOOD ✦
+        </p>
+
+        <h2>
+          Read Victor &amp; Violet
+        </h2>
+
+        <p>
+          Small vampires. Big personalities.
+          Very questionable decisions.
+        </p>
+
+      </div>
 
       <div class="comic-reader">
 
@@ -350,98 +195,28 @@
 
         <div class="reader-content">
 
-          <div class="episode-reader">
+          <div class="comic-placeholder">
 
-            <p class="episode-count">
-              ✦ THE COMIC COLLECTION ✦
-            </p>
-
-            <h2 id="episode-title">
-              Blood Flakes
-            </h2>
-
-            <div class="episode-image-container">
-
-              <img
-                id="comic-image"
-                src="images/episode-1.png.jpg"
-                alt="Blood Flakes - Victor and Violet webcomic"
-              >
-
+            <div class="placeholder-icon" aria-hidden="true">
+              ☾
             </div>
 
-            <p
-              id="image-error"
-              class="image-error"
-              hidden
-              role="alert"
+            <h3>
+              Eight Spooky Little Adventures Await!
+            </h3>
+
+            <p>
+              Step into the Victor &amp; Violet comic library
+              and read the adventures of your favorite
+              little monsters.
+            </p>
+
+            <a
+              href="comics/index.html"
+              class="gold-button"
             >
-              This comic image could not be loaded.
-              Please check the image filename.
-            </p>
-
-            <div class="episode-navigation">
-
-              <button
-                type="button"
-                id="previous-comic"
-                class="outline-button"
-                onclick="changeEpisode(-1)"
-                disabled
-              >
-                ← Previous
-              </button>
-
-              <span id="episode-number" aria-live="polite">
-                Episode 1 of 8
-              </span>
-
-              <button
-                type="button"
-                id="next-comic"
-                class="gold-button"
-                onclick="changeEpisode(1)"
-              >
-                Next →
-              </button>
-
-<!-- Comic Likes and Comments -->
-<div class="comic-social">
-
-  <button type="button" id="like-button">
-    ♡ Like <span id="like-count">0</span>
-  </button>
-
-  <h3>💬 Comments</h3>
-
-  <div id="comments-list">
-    <p>No comments yet. Be the first!</p>
-  </div>
-
-  <form id="comment-form">
-    <input
-      type="text"
-      id="comment-name"
-      placeholder="Your name"
-      maxlength="40"
-      required
-    >
-
-    <textarea
-      id="comment-text"
-      placeholder="Write a comment..."
-      maxlength="1000"
-      required
-    ></textarea>
-
-    <button type="submit">Post Comment</button>
-  </form>
-
-  <p id="comment-message"></p>
-
-</div>
-
-            </div>
+              ☾ Open the Comic Library
+            </a>
 
           </div>
 
@@ -450,7 +225,7 @@
         <div class="reader-bottom">
 
           <p>
-            Enjoying the adventures of Neitherwood?
+            Want even more adventures from Neitherwood?
           </p>
 
           <p>
@@ -463,6 +238,7 @@
             href="https://www.webtoons.com/"
             target="_blank"
             rel="noopener noreferrer"
+            class="gold-button"
           >
             Visit WEBTOON
           </a>
@@ -473,37 +249,360 @@
 
     </section>
 
+
+    <!-- ===================================
+         CHARACTER INTRODUCTIONS
+         =================================== -->
+
+    <section class="characters-section" id="characters">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          ✦ THE USUAL SUSPECTS ✦
+        </p>
+
+        <h2>
+          Meet the Little Monsters
+        </h2>
+
+        <p>
+          Three eight-year-olds.
+          One very strange friendship.
+        </p>
+
+      </div>
+
+
+      <div class="character-grid">
+
+
+        <!-- ===================================
+             VICTOR
+             =================================== -->
+
+        <article class="character-card victor-card">
+
+          <div class="character-top">
+
+            <span class="character-number">
+              01
+            </span>
+
+            <span class="character-icon" aria-hidden="true">
+              🦇
+            </span>
+
+          </div>
+
+          <div class="character-art-space">
+
+            <img
+              src="images/victor.png"
+              alt="Victor Ravencroft"
+              class="character-image"
+            >
+
+          </div>
+
+          <div class="character-info">
+
+            <p class="character-role">
+              THE DRAMATIC TWIN
+            </p>
+
+            <h3>
+              Victor Ravencroft
+            </h3>
+
+            <p>
+              A little vampire with messy black hair,
+              tiny fangs, and a flair for the dramatic.
+              Unfortunately for Victor, nobody else
+              seems to take his crises seriously.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ===================================
+             VIOLET
+             =================================== -->
+
+        <article class="character-card violet-card">
+
+          <div class="character-top">
+
+            <span class="character-number">
+              02
+            </span>
+
+            <span class="character-icon" aria-hidden="true">
+              ☾
+            </span>
+
+          </div>
+
+          <div class="character-art-space">
+
+            <img
+              src="images/violet.png"
+              alt="Violet Ravencroft"
+              class="character-image"
+            >
+
+          </div>
+
+          <div class="character-info">
+
+            <p class="character-role">
+              THE QUIET TWIN
+            </p>
+
+            <h3>
+              Violet Ravencroft
+            </h3>
+
+            <p>
+              Quiet, sweet, and wonderfully mysterious.
+              With her long black hair covering her eyes,
+              Violet has a talent for staying calm
+              while her brother completely loses it.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ===================================
+             SKELLIE
+             =================================== -->
+
+        <article class="character-card skellie-card">
+
+          <div class="character-top">
+
+            <span class="character-number">
+              03
+            </span>
+
+            <span class="character-icon" aria-hidden="true">
+              💀
+            </span>
+
+          </div>
+
+          <div class="character-art-space">
+
+            <img
+              src="images/Skellie.png"
+              alt="Skellie DeBones"
+              class="character-image"
+            >
+
+          </div>
+
+          <div class="character-info">
+
+            <p class="character-role">
+              THE SARCASTIC NEIGHBOR
+            </p>
+
+            <h3>
+              Skellie DeBones
+            </h3>
+
+            <p>
+              A laid-back skeleton who loves skateboarding,
+              drawing creepy creatures, and making
+              sarcastic remarks. Especially when
+              Victor is around.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================
+         NEITHERWOOD
+         =================================== -->
+
+    <section class="neitherwood-section" id="neitherwood">
+
+      <div class="neitherwood-content">
+
+        <p class="eyebrow">
+          ✦ POPULATION: QUESTIONABLE ✦
+        </p>
+
+        <h2>
+          Welcome to Neitherwood
+        </h2>
+
+        <p>
+          Somewhere between ordinary and unusual
+          sits a peculiar little town called Neitherwood.
+        </p>
+
+        <p>
+          Here, vampires go to school, skeletons
+          live next door, and the supernatural
+          is simply part of everyday life.
+        </p>
+
+        <p class="neitherwood-tagline">
+          Strange? Maybe. Home? Absolutely.
+        </p>
+
+      </div>
+
+      <!-- SIMPLE DECORATIVE TOWN SIGN -->
+
+      <div class="town-sign" aria-hidden="true">
+
+        <div class="sign-top">
+          ✦ EST. WHO KNOWS WHEN ✦
+        </div>
+
+        <div class="sign-name">
+          NEITHERWOOD
+        </div>
+
+        <div class="sign-bottom">
+          ENTER IF YOU DARE
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================
+         SHOP PROMOTION
+         =================================== -->
+
+    <section class="shop-promo-section">
+
+      <div class="shop-promo-content">
+
+        <p class="eyebrow">
+          ✦ STRANGE LITTLE TREASURES ✦
+        </p>
+
+        <div class="shop-symbol" aria-hidden="true">
+          ✦ ☾ ✦
+        </div>
+
+        <h2>
+          Woeful Oddities Shop
+        </h2>
+
+        <p>
+          A curious collection of stickers,
+          mini art prints, and other
+          spooky-cute creations from Woeful Studio.
+        </p>
+
+        <a href="shop.html" class="gold-button">
+          Visit the Shop
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================
+         ABOUT WOEFUL STUDIO
+         =================================== -->
+
+    <section class="about-section" id="about">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          ✦ BEHIND THE BAT WINGS ✦
+        </p>
+
+        <h2>
+          About Woeful Studio
+        </h2>
+
+      </div>
+
+      <div class="about-content">
+
+        <p>
+          Woeful Studio is the creative home of
+          Victor &amp; Violet, an original
+          spooky-cute gothic comedy webcomic.
+        </p>
+
+        <p>
+          Inspired by quirky humor, unusual friendships,
+          and the charmingly strange, the series follows
+          the everyday adventures of two little vampires
+          and their skeleton friend.
+        </p>
+
+        <p>
+          Thanks for stopping by Neitherwood.
+          We hope you enjoy your stay!
+        </p>
+
+        <div class="about-signature">
+          A Woeful Studio ✦
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <!-- =====================================
+
+  <!-- ===================================
        FOOTER
-       ===================================== -->
+       =================================== -->
 
-  <footer class="comic-library-footer">
+  <footer class="site-footer">
 
-    <p>✦ Woeful Studio ✦</p>
+    <div class="footer-brand">
+      ✦ Woeful Studio ✦
+    </div>
 
     <p>
-      © 2026 Woeful Studio.
-      All rights reserved.
+      Home of Victor &amp; Violet
     </p>
 
-    <p>
-      <a href="../index.html">Return to Homepage</a>
+    <div class="footer-links">
+
+      <a href="#home">Home</a>
+      <a href="comics/index.html">Comics</a>
+      <a href="#characters">Characters</a>
+      <a href="shop.html">Shop</a>
+
+    </div>
+
+    <p class="copyright">
+      © 2026 Woeful Studio. All rights reserved.
+    </p>
+
+    <p class="footer-note">
+      Made with a little magic in Neitherwood. ☾
     </p>
 
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="supabase-config.js"></script>
-
-  <!-- =====================================
-       CONNECT COMIC READER JAVASCRIPT
-       ===================================== -->     
-
-  <script src="script.js"></script>
-
-  <script src="comments.js"></script>
-
 </body>
+
 </html>
